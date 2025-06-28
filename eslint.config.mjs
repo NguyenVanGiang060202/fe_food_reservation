@@ -11,17 +11,23 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
-  {
-    rules: {
-      "@typescript-eslint/no-unused-vars": [
-        "warn", // hoặc "off" nếu bạn muốn tắt hẳn
-        {
-          varsIgnorePattern: "^_",
-          argsIgnorePattern: "^_",
-        },
-      ],
+  ...compat.config({
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
     },
-  },
+    rules: {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+      "@next/next/no-img-element": "off",
+    },
+  }),
 ];
 
 

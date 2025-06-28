@@ -1,15 +1,26 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { useAuthStore } from '@/store/auth-store'
 import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
-import React, { useState } from 'react'
-import { SignInModal } from './SignInModal'
+import { useRouter } from 'next/navigation'
+
+
+
 
 
 
 export default function Navbar() {
-    const [isOpenModalLogin, setIsOpenModalLogin] = useState(false)
+
+    const { user, logout } = useAuthStore()
+    const router = useRouter()
+
+    async function handleLogout() {
+        await logout()
+        router.push('/')
+        router.refresh()
+    }
     return (
         <header className="w-full shadow-sm bg-white sticky top-0 z-50">
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
@@ -32,13 +43,31 @@ export default function Navbar() {
                 </nav>
 
                 {/* Right actions */}
-                <div className="flex items-center gap-2">
-                    <Button variant="outline" size="sm" onClick={()=>setIsOpenModalLogin(!isOpenModalLogin)}>
-                        Login
-                    </Button>
-                    <SignInModal isOpen={isOpenModalLogin} setIsOpen={setIsOpenModalLogin} />
-                    <Button size="sm">Sign Up</Button>
-                </div>
+                {!user ? (
+                    <div className="flex items-center gap-2">
+                        <Link href="/login">
+                            <Button variant="outline" size="sm">
+                                Login
+                            </Button>
+                        </Link>
+                        <Link href="/signup">
+                            <Button size="sm">
+                                Sign Up
+                            </Button>
+                        </Link>
+                    </div>) : (
+                    <div className="flex items-center gap-2">
+                        <span className="text-gray-900">{user.name}</span>
+                        <Link href="/profile">
+                            <Button variant="outline" size="sm">
+                                Profile
+                            </Button>
+                        </Link>
+                        <Button variant="outline" size="sm" onClick={handleLogout}>
+                            Logout
+                        </Button>
+                    </div>)
+                }
 
                 {/* Mobile menu icon */}
                 <Button

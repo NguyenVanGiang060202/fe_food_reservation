@@ -6,7 +6,7 @@ export default function ProfilePage() {
 	console.log('Profile data:', user);
 	if (!isAuthenticated) return <div>Unauthorized</div>;
 	if (user) {
-		return <div>Hello, {user.name}</div>;
+		return <div className="">Hello, {user.name}</div>;
 	}
 }
 

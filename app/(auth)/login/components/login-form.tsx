@@ -11,14 +11,11 @@ import { z } from 'zod'
 import { useState } from "react"
 import { Loader } from "lucide-react"
 import { useAuthStore } from "@/store/auth-store"
+import { loginFormSchema } from "@/schema/auth"
 
 
-const formSchema = z.object({
-	email: z.string().email(),
-	password: z.string().min(7),
-});
 
-type LoginFormValues = z.infer<typeof formSchema>;
+type LoginFormValues = z.infer<typeof loginFormSchema>;
 
 export default function LoginForm({ className, ...props }: React.ComponentProps<"form">) {
 	const [error, setError] = useState('');
@@ -27,7 +24,7 @@ export default function LoginForm({ className, ...props }: React.ComponentProps<
 	const router = useRouter()
 
 	const form = useForm<LoginFormValues>({
-		resolver: zodResolver(formSchema),
+		resolver: zodResolver(loginFormSchema),
 		defaultValues: {
 			email: '',
 			password: '',
@@ -35,7 +32,7 @@ export default function LoginForm({ className, ...props }: React.ComponentProps<
 	});
 
 
-	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+	const onSubmit = async (values: z.infer<typeof loginFormSchema>) => {
 
 		try {
 			setIsLoading(true);
@@ -47,7 +44,7 @@ export default function LoginForm({ className, ...props }: React.ComponentProps<
 			if (response.ok) {
 				const data = await response.json();
 				setUser(data.data);
-				router.push('/profile')
+				router.push('/dashboard');
 			} else {
 				setError("Sai thông tin đăng nhập. Vui lòng thử lại.");
 			}

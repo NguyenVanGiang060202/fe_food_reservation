@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator'
 import { useAuthStore } from '@/store/auth-store'
 import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 
 
@@ -14,12 +14,10 @@ import { useRouter } from 'next/navigation'
 export default function Navbar() {
 
     const { user, logout } = useAuthStore()
-    const router = useRouter()
 
     async function handleLogout() {
         await logout()
-        router.push('/')
-        router.refresh()
+        redirect('/')
     }
     return (
         <header className="w-full shadow-sm bg-white sticky top-0 z-50">

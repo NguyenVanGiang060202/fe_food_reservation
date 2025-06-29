@@ -15,7 +15,7 @@ export function middleware(req: NextRequest) {
   }
 
   if (accessToken && isPublicRoute) {
-    return NextResponse.redirect(new URL('/profile', req.url));
+    return NextResponse.redirect(new URL('/dashboard', req.url));
   }
 
   return NextResponse.next();

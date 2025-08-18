@@ -80,7 +80,7 @@ export default function ListMenu() {
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>
-                                <div className="w-full h-full flex flex-col justify-center items-start">
+                                <div className="w-full h-full flex flex-col justify-center items-start space-y-2">
                                     {category.items.map((item) => (
                                         <div key={item.id} className="w-full flex items-center justify-between p-4 hover:bg-indigo-50 hover:text-slate-800 rounded-lg transition-colors">
                                             <div className="flex items-center gap-4">

@@ -1,3 +1,4 @@
+import Cart from '@/components/cart/Cart';
 import Sidebar from '@/components/navigation/Sidebar';
 import React from 'react'
 
@@ -10,6 +11,7 @@ export default function layout({
         <div className="min-h-screen flex w-full max-w-screen h-full bg-white">
             <Sidebar />
             {children}
+            <Cart/>
         </div>
     )
 }

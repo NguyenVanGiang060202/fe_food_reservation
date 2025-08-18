@@ -111,7 +111,7 @@ export default function FoodReviews() {
     return (
         <div className='w-full h-full space-y-4'>
             <h3 className='text-2xl font-semibold'>Reviews</h3>
-            <div className="flex w-full gap-4">
+            <div className="flex w-full max-w-[400px] gap-2">
                 <Select value={sortFilter} onValueChange={setSortFilter}>
                     <SelectTrigger className="w-[180px] cursor-pointer text-base font-semibold flex items-center gap-2 bg-indigo-50 text-slate-800">
                         <SelectValue placeholder="Select a fruit" />

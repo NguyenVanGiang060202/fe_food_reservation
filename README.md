@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hệ Thống Đặt Bàn & Gọi Món Nhà Hàng
 
-## Getting Started
+<img src="./public/preview.png" width="600" />
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Giới Thiệu
+
+Hệ thống đặt bàn và gọi món trực tuyến dành cho nhà hàng, giúp khách hàng dễ dàng đặt bàn, xem thực đơn và đặt món trực tuyến. Ứng dụng được xây dựng bằng Next.js với kiến trúc App Router mới nhất.
+
+## Tính Năng Chính
+
+- 🍽️ Đặt bàn trực tuyến
+- 📱 Xem thực đơn với hình ảnh món ăn
+- 🛒 Thêm món vào giỏ hàng
+- 🔐 Xác thực người dùng
+- 📱 Giao diện đáp ứng trên mọi thiết bị
+
+## Công Nghệ Sử Dụng
+
+- **Frontend**: Next.js 14, React 18, TypeScript
+- **UI Components**: Radix UI, Tailwind CSS
+- **Quản lý State**: React Hook Form, Zustand
+- **Xác thực**: NextAuth.js
+- **Tích hợp API**: Axios
+
+## Yêu Cầu Hệ Thống
+
+- Node.js 18.x trở lên
+- npm hoặc yarn
+- Git
+
+## Cài Đặt
+
+1. **Clone dự án**
+   ```bash
+   git clone [repository-url]
+   cd fe_food_reservation
+   ```
+
+2. **Cài đặt dependencies**
+   ```bash
+   npm install
+   # hoặc
+   yarn install
+   ```
+
+3. **Tạo file .env**
+   Tạo file `.env` từ `.env.example` và cập nhật các biến môi trường cần thiết.
+
+4. **Chạy dự án**
+   ```bash
+   npm run dev
+   # hoặc
+   yarn dev
+   ```
+
+5. **Truy cập ứng dụng**
+   Mở trình duyệt và truy cập [http://localhost:3000](http://localhost:3000)
+
+## Cấu Trúc Dự Án
+
+```
+fe_food_reservation/
+├── app/                    # Thư mục chính của ứng dụng
+│   ├── (auth)/             # Các route xác thực
+│   ├── (main)/             # Các route chính
+│   ├── api/                # API routes
+│   └── dashboard/          # Trang quản trị
+├── components/             # Các component tái sử dụng
+│   ├── cart/               # Component giỏ hàng
+│   ├── navigation/         # Thanh điều hướng
+│   └── ui/                 # UI components
+├── lib/                    # Các tiện ích
+├── public/                 # Tài nguyên tĩnh
+├── schema/                 # Schema validation
+├── store/                  # Global state management
+└── types/                  # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Hướng Dẫn Phát Triển
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Quy Tắc Commit
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Chúng tôi sử dụng [Conventional Commits](https://www.conventionalcommits.org/) cho các thông điệp commit. Ví dụ:
 
-## Learn More
+```
+feat: thêm chức năng đặt bàn
+fix: sửa lỗi thanh toán
+chore: cập nhật dependencies
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Tạo Pull Request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Tạo một branch mới từ `main`
+2. Commit các thay đổi của bạn
+3. Push branch lên remote repository
+4. Tạo Pull Request với mô tả rõ ràng về các thay đổi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Giấy Phép
 
-## Deploy on Vercel
+Dự án này được cấp phép theo giấy phép MIT - xem file [LICENSE](LICENSE) để biết thêm chi tiết.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Liên Hệ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Tác giả: [Tên của bạn]
+- Email: [email của bạn]
+- GitHub: [tên người dùng GitHub của bạn]
+
+## Cảm Ơn
+
+Cảm ơn bạn đã quan tâm đến dự án này! Nếu bạn thấy dự án hữu ích, đừng ngần ngại để lại một ⭐️ trên GitHub.
